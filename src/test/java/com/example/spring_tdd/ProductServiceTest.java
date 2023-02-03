@@ -8,21 +8,14 @@ import com.example.spring_tdd.requestDto.AddProductRequest;
 import com.example.spring_tdd.service.ProductService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
-/*
-POJO 구현
- */
+@SpringBootTest
 class ProductServiceTest {
 
+    @Autowired
     private ProductService productService;
-    private ProductPort productPort;
-    private ProductRepository productRepository;
-    @BeforeEach
-    void setup() {
-        productRepository = new ProductRepository();
-        productPort = new ProductAdapter(productRepository); // Repository를 JPA Repository로 바꿀수 있음
-        productService = new ProductService();
-    }
 
     @Test
     void addProductTest() {

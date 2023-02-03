@@ -3,7 +3,9 @@ package com.example.spring_tdd.service;
 import com.example.spring_tdd.requestDto.AddProductRequest;
 import com.example.spring_tdd.repository.ProductPort;
 import com.example.spring_tdd.entity.Product;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ProductService {
     private ProductPort productPort;
 
