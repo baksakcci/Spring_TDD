@@ -1,18 +1,12 @@
 package com.example.spring_tdd.repository;
 
 import com.example.spring_tdd.entity.Product;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@Repository
-public class ProductRepository {
-    private final Map<Long, Product> persistence = new HashMap<>();
-    private Long sequence = 0L;
+public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    public void save(Product product) {
-        product.assignId(++sequence);
-        persistence.put(product.getId(), product);
-    }
 }
